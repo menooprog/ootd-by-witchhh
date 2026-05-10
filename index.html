@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Style With Witch</title>
+
+    <style>
+
+        body{
+            margin:0;
+            padding:0;
+            background: linear-gradient(to right,#3b3b3b,#ffbfd3);
+            font-family: Georgia, serif;
+            text-align:center;
+            color:white;
+        }
+
+        header{
+            background-color: rgba(0,0,0,0.5);
+            padding:20px;
+        }
+
+        h1{
+            font-size:55px;
+            color:#ffd6e7;
+            font-family:"Old English Text MT", fantasy;
+            text-shadow:3px 3px black;
+        }
+
+        .symbols{
+            font-size:30px;
+        }
+
+        .main-box{
+            width:450px;
+            margin:auto;
+            margin-top:50px;
+            background-color:rgba(0,0,0,0.35);
+            padding:30px;
+            border-radius:25px;
+            box-shadow:0px 0px 20px pink;
+        }
+
+        input{
+            margin-top:20px;
+        }
+
+        button{
+            margin-top:20px;
+            padding:12px 25px;
+            border:none;
+            border-radius:12px;
+            background-color:#ffb6c1;
+            font-weight:bold;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        button:hover{
+            background-color:#ff69b4;
+        }
+
+        .style-box{
+            background-color:rgba(255,255,255,0.1);
+            margin-top:15px;
+            padding:15px;
+            border-radius:15px;
+        }
+
+        img{
+            margin-top:20px;
+            width:220px;
+            border-radius:20px;
+            border:3px solid pink;
+        }
+
+        footer{
+            margin-top:50px;
+            background-color:rgba(0,0,0,0.5);
+            padding:15px;
+            color:#ffd6e7;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="symbols">
+        ☾ ✞ 🕸 🦇 ⛓ ☽
+    </div>
+
+    <h1>Style With Witch</h1>
+
+    <p>
+        Upload your outfit & let the witch magic style you ✨
+    </p>
+
+</header>
+
+<div class="main-box">
+
+    <h2>Upload Outfit Picture</h2>
+
+    <input type="file" id="upload" accept="image/*">
+
+    <br>
+
+    <img id="preview" src="" style="display:none;">
+
+    <br>
+
+    <button onclick="showStyles()">
+        Style Me
+    </button>
+
+    <div id="result"></div>
+
+</div>
+
+<footer>
+    Created by Syeda Manahyl
+</footer>
+
+<script>
+
+function showStyles(){
+
+    let file = document.getElementById("upload").files[0];
+
+    if(file){
+
+        let reader = new FileReader();
+
+        reader.onload = function(e){
+
+            document.getElementById("preview").src = e.target.result;
+            document.getElementById("preview").style.display = "block";
+        }
+
+        reader.readAsDataURL(file);
+    }
+
+    document.getElementById("result").innerHTML = `
+
+        <div class="style-box">
+            <h3>1 🖤 Soft Goth</h3>
+            <p>
+            Add black boots, silver chains & dark eyeliner.
+            </p>
+        </div>
+
+        <div class="style-box">
+            <h3>2 🌸 Pastel Goth</h3>
+            <p>
+            Add pastel pink accessories with cute spooky makeup.
+            </p>
+        </div>
+
+        <div class="style-box">
+            <h3>3 ⛓ Dark Academia</h3>
+            <p>
+            Add long coats, rings & dark neutral colors.
+            </p>
+        </div>
+
+        <div class="style-box">
+            <h3>4 🕷 Witchcore</h3>
+            <p>
+            Add moon jewelry, lace sleeves & mystical aesthetics.
+            </p>
+        </div>
+
+    `;
+}
+
+</script>
+
+</body>
+</html>
